@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-4.6.2-dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        $(document).ready(function() {
+            // Xử lý nhấp chuột cho dropdown "Viết Ngay"
+            $('#write-now').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                var $dropdown = $(this).siblings('.header-navbar-list-blog');
+                // Nếu dropdown đang mở, ẩn nó; nếu không, ẩn các dropdown khác và hiện dropdown này
+                if ($dropdown.is(':visible')) {
+                    $dropdown.hide();
+                } else {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                    $dropdown.show();
+                }
+            });
+    
+            // Xử lý nhấp chuột cho dropdown "Thông Báo"
+            $('.header-navbar-list-item-noti > a').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                var $dropdown = $(this).siblings('.header-navbar-list-item-notification');
+                // Nếu dropdown đang mở, ẩn nó; nếu không, ẩn các dropdown khác và hiện dropdown này
+                if ($dropdown.is(':visible')) {
+                    $dropdown.hide();
+                } else {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                    $dropdown.show();
+                }
+            });
+    
+            // Xử lý nhấp chuột cho dropdown "Người Dùng"
+            $('#user-icon').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                var $dropdown = $(this).siblings('.header-navbar-list-user');
+                // Nếu dropdown đang mở, ẩn nó; nếu không, ẩn các dropdown khác và hiện dropdown này
+                if ($dropdown.is(':visible')) {
+                    $dropdown.hide();
+                } else {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                    $dropdown.show();
+                }
+            });
+    
+            // Hiện modal tìm kiếm khi nhấp vào ô tìm kiếm
+            $('#searchBox').on('click', function(e) {
+                e.preventDefault(); // Ngăn chặn nhảy trang
+                $('#searchModal').modal('show');
+            });
+    
+            // Ẩn dropdown khi nhấp ra ngoài
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.header-navbar-list-item').length) {
+                    $('.header-navbar-list-blog, .header-navbar-list-item-notification, .header-navbar-list-user').hide();
+                }
+            });
+        });
+        
+        $(document).ready(function(){
+    // Lặp qua tất cả các item trong carousel
+    
+});
+    </script>
+</head>
+<body>
+    <header id="header">
+        <div class="container-fluid">
+            <div class="header-logo">
+                <a href="" class="header-logo-link">
+                    <img src="/assets/img/logo-new.jpg" alt="" class="header-logo-img">
+                </a>
+            </div>
+            <div class="header-navbar">
+                <div class="header-navbar-search" id="searchBox">
+                    <label for="" class="header-navbar-search-label">
+                        <span>
+                            Bạn muốn đi đâu?
+                        </span>
+                        <div class="header-navbar-search-box">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="header-navbar-right">
+                    <ul class="header-navbar-list">
+                        <li class="header-navbar-list-item"><a href="https://fullstack.edu.vn/" class="header-navbar-list-item-link">
+                            <i class="fas fa-globe-asia "></i>
+                            <p class="header-navbar-list-item-content">Điểm Đến</p>
+                        </a></li>
+                        <li class="header-navbar-list-item"><a href="#" class="header-navbar-list-item-link">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p class="header-navbar-list-item-content">My Travel Map</p>
+                        </a></li>
+                        <li class="header-navbar-list-item header-navbar-list-item-blog">
+                            <a href="#" class="header-navbar-list-item-link" id="write-now">
+                                <i class="fas fa-pen-fancy"></i>
+                                <p class="header-navbar-list-item-content">Viết Ngay</p>
+                            </a>
+                            <ul class="header-navbar-list-blog" style="display: none;">
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link header-navbar-list-blog-link-main">
+                                        <i class="far fa-edit"></i>
+                                        <p class="header-navbar-list-blog-content">Chia sẻ trải nghiệm & review</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="far fa-image"></i>
+                                        <p class="header-navbar-list-blog-content">Chia sẻ hình ảnh</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="far fa-images"></i>
+                                        <p class="header-navbar-list-blog-content">Chia sẻ hình từ Facebook</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="far fa-question-circle"></i>
+                                        <p class="header-navbar-list-blog-content">Hỏi đáp du lịch</p>
+                                    </a>
+                                </li>
+                                <li class="header-navbar-list-blog-item">
+                                    <a href="#" class="header-navbar-list-blog-link">
+                                        <i class="fas fa-handshake"></i>
+                                        <p class="header-navbar-list-blog-content">Lập & chia sẻ hành trình</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header-navbar-list-item header-navbar-list-item-noti"><a href="#" class="header-navbar-list-item-link">
+                            <i class="fas fa-bell"></i>
+                            <p class="header-navbar-list-item-content">Thông Báo</p>
+                        </a>
+                        <div class="header-navbar-list-item-notification">
+                            <div class="header-navbar-list-item-notification-menu">
+                                <button class="btn btn-default fl-1 bn active">Tất cả </button>
+                                <button class="btn btn-default fl-1 bn">Ưa thích </button>
+                                <button class="btn btn-default fl-1 bn">Gần đây </button>
+                            </div>
+                            <ul class="header-navbar-list-item-notification-content" id="notification-icon">
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="notification-item">
+                                    <a href="" class="notification-item-link">
+                                        <div class="notification-item-img">
+                                            <img src="assets/img/avata.jpg" alt="">
+                                        </div>
+                                        <div class="notification-item-content">
+                                            <p class="notification-item-content-text">
+                                                Bài học Pass by value và Pass by reference là gì? mới được thêm vào.
+                                            </p>
+                                            <span class="notification-item-date">2 tháng trước</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        </li>
+                        <li class="header-navbar-list-item header-navbar-list-item-user">
+                            <div class="header-navbar-list-item-link header-navbar-list-item-link-user" id="user-icon">
+                                <img class="header-navbar-list-item-user-img" src="/assets/img/avata.jpg" alt="">
+                                <p class="header-navbar-list-item-content">Hiếu</p>
+                            </div>
+                            <ul class="header-navbar-list-user">
+                                <li class="header-navbar-list-user-item">
+                                    <p class="header-navbar-list-user-link">Trang cá nhân</p>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">My Travel Map</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">Ví du lịch</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">Đơn Hàng & Đặt chỗ</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link">Cài đặt tài khoản</a>
+                                </li>
+                                <li class="header-navbar-list-user-item">
+                                    <a href="" class="header-navbar-list-user-link header-navbar-list-user-link-out">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section class="section-write-nav">
+            <div class="container">
+                <ul class="section-nav-write-list">
+                    <li class="section-nav-write-item"><a href="" class="section-nav-write-list-link"><i class="fas fa-plane"></i><p class="section-nav-write-list-link-text">Vé máy bay</p></a></li>
+                    <li class="section-nav-write-item"><a href="" class="section-nav-write-list-link"><i class="fas fa-briefcase"></i><p class="section-nav-write-list-link-text">Bảo Hiểu du lịch</p></a></li>
+                    <li class="section-nav-write-item"><a href="" class="section-nav-write-list-link"><i class="fas fa-wifi"></i><p class="section-nav-write-list-link-text">Esim du lịch</p></a></li>
+                    <li class="section-nav-write-item"><a href="" class="section-nav-write-list-link"><i class="fas fa-sim-card"></i><p class="section-nav-write-list-link-text">Sim Du lịch</p></a></li>
+                    <li class="section-nav-write-item"><a href="" class="section-nav-write-list-link"><i class="fas fa-globe-asia "></i><p class="section-nav-write-list-link-text">Dịch vụ hộ chiếu</p></a></li>
+                    <li class="section-nav-write-item"><a href="" class="section-nav-write-list-link"><i class="far fa-map"></i><p class="section-nav-write-list-link-text">Dịch vụ du lịch</p></a></li>
+                </ul>
+            </div>
+        </section>
+    </header>
+    <!-- model nếu code header copy cả cái này -->
+    <div class="modal fade" id="searchModal" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" class="form-control" placeholder="Địa điểm bạn muốn tìm?" aria-label="Tìm kiếm">
+                    <div class="modal-header-icon">
+    
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <!-- Sponsored Item -->
+                    <div class="modal-body-service ">
+                        <img src="/assets/img/avata.jpg" alt="sponsor" class="modal-body-service-img">
+                        <div class="">
+                            <strong>Dịch Vụ Làm Mới & Làm Lại Hộ Chiếu</strong>
+                            
+                            <p class="modal-body-service-content">Nhanh, Uy Tín, Online, Giá Rẻ <span class="modal-body-service-img-des">Được Tài Trợ</span></p>
+                        </div>
+                    </div>
+    
+                    <!-- Popular Searches Section -->
+                    <h6 class="modal-content-search">Tìm kiếm nhiều</h6>
+                    <div class="row">
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                         
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item">
+                            <div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                        <a class="col-sm-3 model-content-search-item"><div class="model-content-search-avatar">
+                            <img src="/assets/img/avata.jpg" alt="" class ="model-content-search-avatar-img">
+                        </div>
+                        <p class="model-header-search-content-text">Phú quốc</p>
+                    </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="container-fluid new-all-bg">
+            <img src="/assets/img/hinh-nen-thien-nhien.jpg" alt="" class="new-all-bg-img">
+            <div class="new-all-bg-content">
+                <h2 class="new-all-bg-header">
+                    Blog du lịch Việt Nam và Nước ngoài
+                </h2>
+                <p class="new-all-bg-text">
+                    Blog du lịch Việt Nam và nước ngoài được chia sẻ từ các travel blogger nổi tiếng, cộng đồng những người đi du lịch
+                </p>
+            </div>
+        </div>
+        <section class="new-all-bg-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9">
+                        <div class="write-blog-new">
+                            <div class="write-blog-new-user">
+                                <img src="/assets/img/avata.jpg" alt="" class="write-blog-new-user-img">  
+                            </div>
+                            <div class="write-blog-new-content">
+                                <a href="" class="write-blog-new-content-link">Chia sẻ trãi nghiệm Blog</a>
+                                <div class="write-blog-new-content-box">
+                                    <a href="" class="write-blog-new-content-box-link write-blog-new-content-box-link-first"><i class="fas fa-pen-square"></i>Viết bài</a>
+                                    <a href="" class="write-blog-new-content-box-link write-blog-new-content-box-link-second">
+                                        <i class="fas fa-image"></i>
+                                    Hình ảnh</a>
+                                    <a href="" class="write-blog-new-content-box-link write-blog-new-content-box-link">
+                                        <i class="fab fa-facebook-square"></i>
+                                        Facebook
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="write-all-blog">
+
+                            <ul class="write-all-list">
+                                <li class="write-all-list-item">
+                                    <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                                    <p class="write-all-list-item-des">
+                                        Hành trình về với thiên nhiên....
+                                        Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                                    </p>
+                                        <div class="write-all-blog-user">
+                                <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                                <p class="write-all-blog-user-name">Khang hoàng</p>
+                            </div>
+                            <ul class="write-all-blog-list-img">
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                            </ul>
+                            <ul class="write-all-blog-list-icon">
+                                <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="far fa-comments"></i>Comment</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share
+                                </li>
+                            </ul>
+                                </li>
+                                <li class="write-all-list-item">
+                                    <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                                    <p class="write-all-list-item-des">
+                                        Hành trình về với thiên nhiên....
+                                        Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                                    </p>
+                                        <div class="write-all-blog-user">
+                                <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                                <p class="write-all-blog-user-name">Khang hoàng</p>
+                            </div>
+                            <ul class="write-all-blog-list-img">
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                            </ul>
+                            <ul class="write-all-blog-list-icon">
+                                <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="far fa-comments"></i>Comment</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share
+                                </li>
+                            </ul>
+                                </li>
+                                <li class="write-all-list-item">
+                                    <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                                    <p class="write-all-list-item-des">
+                                        Hành trình về với thiên nhiên....
+                                        Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                                    </p>
+                                        <div class="write-all-blog-user">
+                                <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                                <p class="write-all-blog-user-name">Khang hoàng</p>
+                            </div>
+                            <ul class="write-all-blog-list-img">
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                            </ul>
+                            <ul class="write-all-blog-list-icon">
+                                <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="far fa-comments"></i>Comment</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share
+                                </li>
+                            </ul>
+                                </li>
+                                <li class="write-all-list-item">
+                                    <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                                    <p class="write-all-list-item-des">
+                                        Hành trình về với thiên nhiên....
+                                        Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                                    </p>
+                                        <div class="write-all-blog-user">
+                                <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                                <p class="write-all-blog-user-name">Khang hoàng</p>
+                            </div>
+                            <ul class="write-all-blog-list-img">
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                            </ul>
+                            <ul class="write-all-blog-list-icon">
+                                <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="far fa-comments"></i>Comment</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share
+                                </li>
+                            </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="new-all-finance">
+                            <div class="new-all-finance-title">
+                                Tài trợ
+                            </div>
+                            <ul class="new-all-finance-list">
+                                <li class="new-all-finace-item-finace"><a href="" class="new-all-finace-link">
+                                    <img src="/assets/img/lam-ho-chieu-tai-thu-duc.jpg" alt="" class="new-all-finace-img">
+                                    <div class="new-all-finace-content">
+                                        <h4 class="new-all-finace-title">
+                                            Dịch vụ làm mới & làm lại hộ chiếu
+                                        </h4>
+                                        <p class="new-all-finace-content">
+                                            Nhanh, uy tín, online, giá rẻ
+                                        </p>
+                                    </div>    
+                                </a></li>
+                                <li class="new-all-finace-item-finace"><a href="" class="new-all-finace-link">
+                                    <img src="" alt="" class="new-all-finace-img">
+                                    <div class="new-all-finace-content">
+                                        <h4 class="new-all-finace-title">
+                                            Bảo hiểm du lịch trong nước & nước ngoài
+                                        </h4>
+                                        <p class="new-all-finace-content">
+                                            Đặt bảo hiểm du lịch online, đơn giản    
+                                        </p>
+                                    </div>
+                                </a></li>
+                                <li class="new-all-finace-item-finace"><a href="" class="new-all-finace-link">
+                                    <img src="" alt="" class="new-all-finace-img">
+                                    <div class="new-all-finace-content">
+                                        <h4 class="new-all-finace-title">
+                                            Dịch vụ visa
+                                        </h4>
+                                        <p class="new-all-finace-content">
+                                            Hồ sơ đơn giản tỉ lệ đậu visa 99%
+                                        </p>
+                                    </div>
+                                </a></li>
+                            </ul>
+                        </div>
+                        </ul>
+                                </li>
+                                <li class="write-all-list-item-footer">
+                                    <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                                    <p class="write-all-list-item-des">
+                                        Hành trình về với thiên nhiên....
+                                        Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                                    </p>
+                                        <div class="write-all-blog-user">
+                                <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                                <p class="write-all-blog-user-name">Khang hoàng</p>
+                            </div>
+                            <ul class="write-all-blog-list-img">
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                            </ul>
+                            <ul class="write-all-blog-list-icon">
+                                <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="far fa-comments"></i>Comment</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share
+                                </li>
+                            </ul>
+                                </li>
+                                <li class="write-all-list-item-footer">
+                                    <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                                    <p class="write-all-list-item-des">
+                                        Hành trình về với thiên nhiên....
+                                        Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                                    </p>
+                                        <div class="write-all-blog-user">
+                                <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                                <p class="write-all-blog-user-name">Khang hoàng</p>
+                            </div>
+                            <ul class="write-all-blog-list-img">
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                                <li class="blog-list-item">
+                                    <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                                    
+                                </li>
+                            </ul>
+                            <ul class="write-all-blog-list-icon">
+                                <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="far fa-comments"></i>Comment</li>
+                                <li class="write-all-blog-list-icon-item">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share
+                                </li>
+                            </ul>
+                                </li>
+                            </ul>
+                            <div class="write-all-footer">
+                            </ul>
+                        </li>
+                        <li class="write-all-list-item-footer">
+                            <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                            <p class="write-all-list-item-des">
+                                Hành trình về với thiên nhiên....
+                                Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                            </p>
+                                <div class="write-all-blog-user">
+                        <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                        <p class="write-all-blog-user-name">Khang hoàng</p>
+                    </div>
+                    <ul class="write-all-blog-list-img">
+                        <li class="blog-list-item">
+                            <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                            
+                        </li>
+                        <li class="blog-list-item">
+                            <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                            
+                        </li>
+                        <li class="blog-list-item">
+                            <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                            
+                        </li>
+                    </ul>
+                    <ul class="write-all-blog-list-icon">
+                        <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                        <li class="write-all-blog-list-icon-item">
+                            <i class="far fa-comments"></i>Comment</li>
+                        <li class="write-all-blog-list-icon-item">
+                            <i class="fas fa-share-alt"></i>
+                            Share
+                        </li>
+                    </ul>
+                        </li>
+                        <li class="write-all-list-item-footer">
+                            <a href="" class="write-all-list-item-title">THÁC DRAY NUR - ĐẮK LẮK</a>
+                            <p class="write-all-list-item-des">
+                                Hành trình về với thiên nhiên....
+                                Di chuyển từ Thành phố Hồ Chí Minh, khoảng 350km về tới tỉnh Đắk Lắk. Vượt qua nhiều cung đường đẹp. Tuy nhiên, đoạn cuối hành trình hơi gian nan vì nhiều ổ voi. Đường vào Thác phải đi qua khu công nghiệp, nên nhiều xe lớn đi qua, đường xấu... Nhưng có hành trình nào là không gian nan, khổ tận cam lai... phía cuối con đường luôn là nơi ta cần đến!
+                            </p>
+                                <div class="write-all-blog-user">
+                        <img src="/assets/img/avata.jpg" alt="" class="write-all-blog-user-img">
+                        <p class="write-all-blog-user-name">Khang hoàng</p>
+                    </div>
+                    <ul class="write-all-blog-list-img">
+                        <li class="blog-list-item">
+                            <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                            
+                        </li>
+                        <li class="blog-list-item">
+                            <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                            
+                        </li>
+                        <li class="blog-list-item">
+                            <img src="https://h3jd9zjnmsobj.vcdn.cloud/public/images/posts/2024/10/22/hieu.icu9739/thumbnail/1ea7926fe93a9595f9e597dee6231cec.jpg" alt="" class="blog-list-item-img">
+                            
+                        </li>
+                    </ul>
+                    <ul class="write-all-blog-list-icon">
+                        <li class="write-all-blog-list-icon-item"><i class="far fa-heart"></i>Love</li>
+                        <li class="write-all-blog-list-icon-item">
+                            <i class="far fa-comments"></i>Comment</li>
+                        <li class="write-all-blog-list-icon-item">
+                            <i class="fas fa-share-alt"></i>
+                            Share
+                        </li>
+                    </ul>
+                        </li>
+                    </ul>
+                            </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="baner-box-new-activity">
+                            <h3 class="baner-box-new-activity-header">
+                                Bình luận mới nhất
+                            </h3>
+                            <ul class="new-activity-list">
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                                <li class="new-activity-item"><a href="" class="new-activity-link"><img src="/assets/img/avata.jpg" alt="" class="new-activity-link-img"><p class="new-activity-link-content">Ky Vo Nhat <span class="content-nostrong">bình luận trong</span> Chùa Dơi (Temple)</p></a></li>
+                            </ul>
+                        </div>
+                        <img src="https://gody.vn/public/v6/images/right-banner-4.png" alt="" class="baner-box-img">
+                            <div class="place">
+                                <h3 class="place-header">
+                                    Địa điểm
+                                </h3>
+                                <ul class="place-list">
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                    <li class="place-item"><a href="" class="place-link">
+                                        <img src="/assets/img/Screenshot 2024-10-21 224124.png" alt="" class="place-item-img">
+                                        <p class="place-item-content">Đường đua và sòng bạc Red Shores (Red Shores Racetrack & Casino)</p>
+                                    </a></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="pagination">
+                <ul class="pagination-list">
+                    <li class="pagination-item"><i class="fas fa-arrow-circle-left"></i></li>
+                    <li class="pagination-item">1</li>
+                    <li class="pagination-item">2</li>
+                    <li class="pagination-item">3</li>
+                    <li class="pagination-item">4</li>
+                    <li class="pagination-item">5</li>
+                    <li class="pagination-item"><i class="fas fa-arrow-circle-right"></i></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-des">
+            <p><strong>Gody.vn - Mạng Xã Hội Du Lịch Lớn Nhất Việt Nam</strong></p>
+            <p><strong>Gody.vn</strong> là mạng xã hội du lịch lớn nhất Việt Nam hiện nay với khoảng 300.000 thành viên. Gody.vn hoạt động như một cộng đồng du lịch nơi các thành viên có thể thảo luận, trao đổi, chia sẻ tất cả về du lịch và những điều liên quan trước, trong và sau chuyến đi.</p>
+            <p><strong>Gody.vn tạo kênh tương tác cộng đồng người đi du lịch thông qua các chức năng nổi bật như:</strong></p>
+            <li><a href="" class="footer-strong">Blog du lịch:</a>Cho phép thành viên chia sẻ câu chuyện, hành trình du lịch của mình.</li>
+            <li><a href="" class="footer-strong">Hỏi - Đáp du lịch:</a>Một diễn đàn để các thành viên có thể đặt câu hỏi và trả lời câu hỏi với nhau.</li>
+            <li><a href="" class="footer-strong">Lịch Trình Du Lịch:</a>Giúp người dùng lên kế hoạch và quản lý lịch trình cho chuyến đi của mình một cách dễ dàng.</li>
+            <li><a href="" class="footer-strong">Ví Du Lịch</a>Quản lý các giấy tờ cá nhân, các giấy tờ liên quan đến chuyến đi, cũng như là chi tiêu và tài chính cho chuyến đi.</li>
+            <li><a href="" class="footer-strong">My Travel Map: </a>Tạo bản đồ du lịch cá nhân, ghi lại những nơi đã đến.</li>
+            <li><a href="" class="footer-strong">Review:</a>chia sẻ các đánh giá về các điểm tham quan, các điểm ăn uống, các dịch vụ du lịch.</li>
+            <p><strong>Gody.vn</strong> cung cấp thông tin hướng dẫn du lịch đến các châu lục, quốc gia, thành phố cũng như các địa điểm tham quan du lịch trên khắp thế giới. Các thông tin được chia sẻ bởi những travel blogger, travel writer hay chính từ những người dân bản địa tại điểm đến.</p>
+            <p><strong>Gody.vn cũng hợp tác với các đối tác để triển khai cung cấp các dịch vụ lịch như:</strong></p>
+            <li><a href="" class="footer-strong">Bảo Hiểm Du Lịch, Bảo Hiểm Xe Gắn Máy và Bảo Hiểm Ô Tô: </a>Cho phép thành viên chia sẻ câu chuyện, hành trình du lịch của mình.</li>
+            <li><a href="" class="footer-strong">Tour Du Lịch Trọn Gói: </a>Một diễn đàn để các thành viên có thể đặt câu hỏi và trả lời câu hỏi với nhau.</li>
+            <li><a href="" class="footer-strong">eSim & Sim Du Lịch: </a>Giúp người dùng lên kế hoạch và quản lý lịch trình cho chuyến đi của mình một cách dễ dàng.</li>
+            <li><a href="" class="footer-strong">Vé Máy Bay: </a>Quản lý các giấy tờ cá nhân, các giấy tờ liên quan đến chuyến đi, cũng như là chi tiêu và tài chính cho chuyến đi.</li>
+            <li><a href="" class="footer-strong">My Travel Map: </a>Tạo bản đồ du lịch cá nhân, ghi lại những nơi đã đến.</li>
+            <li>...</li>
+            
+        </div>
+        <div class="container">
+            <div class="row footer-body-box">
+                <div class="col-xl-4">
+                    <div class="footer-body">
+                        <img src="/assets/img/logo-new.jpg" alt="" class="footer-body-img">
+                        <p class="footer-item-link">CÔNG TY CỔ PHẦN GODY</p>
+                        <p class="footer-item-link">2/24 Đoàn Thị Điểm, Phường 01, Quận Phú Nhuận, Thành phố Hồ Chí Minh, Việt Nam</p>
+                        <p class="footer-item-link">Giấy phép ĐKKD: Giấy phép ĐKKD số 0315429018 do Sở KH & ĐT cấp ngày 22/10/20124.</p>
+                        <p class="footer-item-link">Giấy phép MXH: Giấy phép MXH số 573/GP-BTTTT cấp ngày 20/11/2023</p>
+                        <p class="footer-item-link">Hotline: 0985.172.470</p>
+                        <p class="footer-item-link">Email: hi@gody.vn</p>
+                        <div class="footer-contact-list">
+                            <a href="" class="footer-contact-link footer-contact-link-fb">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="" class="footer-contact-link footer-contact-link-yt">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="" class="footer-contact-link footer-contact-link-ig">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2">
+                    <h4 class="footer-body-header">Về Gody</h4>
+                        <ul class="footer-body-list">
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Giới thiệu</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Liên hệ</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Chính sách bảo mật</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Chính sách quyền riêng tư</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Câu hỏi thường gặp</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Chính sách Đổi Trả và Hoàn Tiền</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Chính sách bảo vệ thông tin của người tiêu dùng</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Chính sách thanh toán</a></li>
+                        </ul>
+                    
+                </div>
+                <div class="col-xl-2">
+                    <h4 class="footer-body-header">Du lịch</h4>
+                        <ul class="footer-body-list">
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Tin tức</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Khuyến mãi</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Điểm đến</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Ẩm thực</a></li>
+                            
+                        </ul>
+                    
+                </div>
+                <div class="col-xl-2">
+                    <h4 class="footer-body-header">Tiện ích</h4>
+                        <ul class="footer-body-list">
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Lên lịch trình du lịch</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Tạo bảo đồ du lịch - My Travel Map</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Hỏi đáp du lịch</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Viết blog du lịch</a></li>
+                            <li class="footer-body-item"><a href="" class="footer-item-link">Điểm đến</a></li>
+                            
+                        </ul>
+                    
+                </div>
+                <div class="col-xl-2">
+                    <h4 class="footer-body-header footer-body-header-last">
+                        Phương thức thanh toán
+                    </h4>
+                    <ul class="footer-body-list">
+                        <li class="footer-body-item"><a href="" class="footer-item-link">Hướng dẫn thanh toán VNPAY</a></li>
+                        <img src="/assets/img/Screenshot 2024-10-22 011221.png" alt="">
+                        
+                    </ul>
+                </div>
+            </div>
+            <h4 class="footer-body-header footer-body-header-dl">
+                Tải ứng dụng "GODY"
+            </h4>
+            <div class="footer-body-header-dl-app">
+                <a href="" class="footer-dl-icon"><i class="fab fa-app-store-ios"></i>App Store</a>
+                <a href="" class="footer-dl-icon"><i class="fab fa-google-play"></i>Google Play</a>
+            </div>
+            
+        </div>
+        <div class="container container-sevice">
+            <div class="row service-box">
+                <div class="col-xl-3">
+                    <h3 class="footer-service">Sim du lịch</h3>
+                    <p>Sim Thái Lan / Sim Singapore / Sim Malaysia / Sim Trung Quốc / Sim Đài Loan / Sim Hàn Quốc / Sim Nhật Bản / Sim Châu Âu / Sim Ấn Độ / Sim Mỹ</p>
+                </div>
+                <div class="col-xl-3">
+                    <h3 class="footer-service">eSIM du lịch</h3>
+                    <p>eSIM Thái Lan / eSIM Singapore / eSIM Malaysia / eSIM Trung Quốc / eSIM Đài Loan / eSIM Hong Kong / eSIM Hàn Quốc / eSIM Nhật Bản / eSIM Châu Âu / eSIM Ấn Độ</p>
+                </div>
+                <div class="col-xl-3">
+                    <h3 class="footer-service">Bảo hiểm du lịch</h3>
+                    <p>Bảo hiểm du lịch trong nước / Bảo hiểm du lịch nước ngoài / Bảo hiểm xe máy / Bảo hiểm ô tô / Bảo hiểm du lịch Singapore / Bảo hiểm du lịch Malaysia / Bảo hiểm du lịch Thái Lan</p>
+                </div>
+                <div class="col-xl-3">
+                    <h3 class="footer-service">Bảo hiểm du lịch</h3>
+                    <p>
+                        Bảo hiểm du lịch Trung Quốc / Bảo hiểm du lịch Đài Loan / Bảo hiểm du lịch Hàn Quốc / Bảo hiểm du lịch Nhật Bản / Bảo hiểm du lịch Châu Âu / Bảo hiểm du lịch Mỹ / Bảo hiểm du lịch Úc
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid footer-end">
+            © Toàn bộ bản quyền thuộc Nhóm 1. Cấm sao chép dưới mọi hình thức.
+        </div>
+    </footer> 
+
+</body>
+</html>
